@@ -1,15 +1,40 @@
 {
   "compilerOptions": {
+    // 目标代码 es6+
     "target": "esnext",
     "useDefineForClassFields": true,
     "module": "esnext",
+    // 按照node的方式去解析模块
     "moduleResolution": "node",
     "strict": true,
+    // 对jsx做什么处理，这里不做处理
     "jsx": "preserve",
+    // 辅助导入功能
+    "importHelpers": true,
+    // 跳过一些库的类型检测
+    "skipLibCheck": true,
+    // 要不要生成映射文件 ts->js
     "sourceMap": true,
     "resolveJsonModule": true,
+    // esmodule commonjs混合使用
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"]
+    // 可以指定在项目中可以用那些库的类型（Proxy window doc）
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "baseUrl": ".",
+    // 路径解析 编译阶段
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ]
 }
